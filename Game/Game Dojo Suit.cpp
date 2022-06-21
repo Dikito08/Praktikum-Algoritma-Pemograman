@@ -18,6 +18,14 @@ setcolor (unsigned short color)
   SetConsoleTextAttribute (hCon, color);
 
 }
+struct posisi
+	{	
+    	int panjangPeta;
+    	int lebarPeta;
+    	int koordinatY;
+    	int koordinatX;
+    	int koordinat;
+  	};
 
 int main ()
 {
@@ -37,14 +45,6 @@ int main ()
 //    int posisiKarakterY = 15;
 //    int posisiKarakterX = 4;
 
-	struct posisi
-	{	
-    	int panjangPeta;
-    	int lebarPeta;
-    	int koordinatY;
-    	int koordinatX;
-    	int koordinat;
-  	};
 	posisi myPosisi;
 
 	myPosisi.panjangPeta = 40;
@@ -186,7 +186,7 @@ int main ()
 	      cout << "Pilihan : ";
 	      cin >> choice;
 
-//                      system("clear");
+		//system("clear");
 	      if (choice == 1)
 		{
 			system ("cls");
