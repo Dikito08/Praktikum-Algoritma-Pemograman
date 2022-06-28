@@ -169,11 +169,13 @@ int main ()
 	      pilihan.choice = 0;
 	      pilihan.pilih = 0;
 		  pilihan.lagi = 0;
-		   
+		  
+		  setcolor(4);
 	      cout << "\n\nApakah kau yakin ingin melawannya?\n";
 	      cout << "1. Ya\n2. Tidak\n";
 	      cout << "Pilihan : ";
 	      cin >> pilihan.choice;
+	      setcolor(7);
 
 		//system("clear");
 	      if (pilihan.choice == 1)
