@@ -44,6 +44,12 @@ int peta[lebarpeta][panjangpeta] = {
     {4, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 4},
     {4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4},
 	};
+	
+struct suit {
+	int choice;
+	int pilih;
+	int lagi;
+};
 
 // movement
 void playermove (int key) {
@@ -148,9 +154,9 @@ int main ()
 	  
 	  mapdisplay();
 	  
-	  cout << "Click arrow key to play\n";
-	  cout << "------------------------\n";
-	  cout << "click ESC to exit\n";
+	  cout << "Gunakan arah panah untuk bergerak\n";
+	  cout << "--------------------------------\n";
+	  cout << "Untuk keluar pencet ESC\n";
 	  
 	  arrowKey = getch();
 	  
@@ -159,28 +165,31 @@ int main ()
       // Ketika bertemu lawan   
       if (peta[koordinatY][koordinatX] == 2 )
 	{
-	      int choice;
-
+		  suit pilihan;
+	      pilihan.choice = 0;
+	      pilihan.pilih = 0;
+		  pilihan.lagi = 0;
+		   
 	      cout << "\n\nApakah kau yakin ingin melawannya?\n";
 	      cout << "1. Ya\n2. Tidak\n";
 	      cout << "Pilihan : ";
-	      cin >> choice;
+	      cin >> pilihan.choice;
 
 		//system("clear");
-	      if (choice == 1)
+	      if (pilihan.choice == 1)
 		{
 			system ("cls");
-		  int pilih, lagi;
+		  
 		a:
 		cout << "\n\nSelamat datang di game suit" << endl;
 		cout << "Kamu pilih?\n\n";
 		cout << "1. Gajah\n2. Semut\n3. Orang\n\n";
 		cout << "Silahkan Pilih : ";
-		cin >> pilih;
+		cin >> pilihan.pilih;
 		cout << endl;
 		int com;
 		
-		if (pilih == 1) {
+		if (pilihan.pilih == 1) {
 			cout << "Kamu memilih gajah\n";
 			srand(time(NULL));
 			com = rand() % 10;
@@ -198,7 +207,7 @@ int main ()
 				cout << "Kamu kalah\n";
 			} cout << endl;
 		}
-		else if (pilih == 2){
+		else if (pilihan.pilih == 2){
 			cout << "Kamu memilih semut\n";
 			srand(time(NULL));
 			int com = rand() % 10;
@@ -216,7 +225,7 @@ int main ()
 				cout << "Kamu kalah\n";
 			} cout << endl;
 		}
-		else if (pilih == 3) {
+		else if (pilihan.pilih == 3) {
 			cout << "Kamu memilih orang\n";
 			srand(time(NULL));
 			int com = rand() % 10;
@@ -243,9 +252,9 @@ int main ()
 			cout << "Pilih lagi??\n";
 			cout << "1. lagi\n2. tidak\n";
 			cout << "pilihan : ";
-			cin >> lagi;
+			cin >> pilihan.lagi;
 		b:
-			if (lagi == 1){
+			if (pilihan.lagi == 1){
 				system ("cls");
 				goto a;
 		}
@@ -265,6 +274,7 @@ int main ()
 				goto main;
 			} else if (lanjut == 2)
 			{
+				system ("cls");
 				game++;
 			}
 		} else
@@ -285,9 +295,9 @@ int main ()
     };
     if (arrowKey == ESC) {
     	system("cls");
-    	char	 choice;
-    	cout << "Are you sure want to exit?" << endl;
-    	cout << "1. Yes \n2. No\n";
+    	char choice;
+    	cout << "Apakah anda yakin ingin mengakhiri petualangan ini?" << endl;
+    	cout << "1. Ya \n2. Tidak\n";
     	choice = getch();
 
     	if (choice == '1') {
@@ -298,7 +308,7 @@ int main ()
 		}
 	}
 	}
-	cout << "Terima kasih telah berjuang melawan musuh kami menanti kembali kedatangan anda" << endl;
+	cout << "Terima kasih telah berjuang melawan musuh, kami menanti kembali kedatangan anda" << endl;
   getch ();
   return 0;
 };
