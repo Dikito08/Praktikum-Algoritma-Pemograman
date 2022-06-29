@@ -80,10 +80,6 @@ void playermove (int key) {
 	  koordinatX += 1;
 	  koordinatX > 19 ? koordinatX =
 	    19 : koordinatX;
-	}
-      else
-	{
-	  // nothing to do
 	};
 }
 
@@ -145,9 +141,19 @@ int main ()
      5 kayu : -
      6 Batu : o
   */
-	int game = 1;
-	while (game <= 1)
-    {
+  
+  char menu;
+  cout << "SELAMAT DATANG DI GAME DOJO SUIT\n";
+  cout << "----------------------------------\n";
+  cout << "1. Play\n2. Exit\n";
+  menu = getch();
+  
+  if (menu == '1')
+  {
+  	system ("cls");
+  int game = 1;
+  while (game <= 1)
+  {
       // Input Keyboard
       main :
 	  playermove (arrowKey);
@@ -293,8 +299,9 @@ int main ()
 				goto a;
 			}
 		}
-	}
-    };
+  }
+  }
+  };
     if (arrowKey == ESC) {
     	system("cls");
     	char choice;
@@ -309,6 +316,9 @@ int main ()
 			system("cls");
 		}
 	}
+	} else if (menu == '2')
+	{
+		return 0;
 	}
 	cout << "Terima kasih telah berjuang melawan musuh, kami menanti kembali kedatangan anda" << endl;
   getch ();
