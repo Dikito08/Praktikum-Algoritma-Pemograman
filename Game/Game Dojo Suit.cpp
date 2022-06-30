@@ -16,7 +16,6 @@ void setcolor (unsigned short color)
   HANDLE hCon = GetStdHandle (STD_OUTPUT_HANDLE);
 
   SetConsoleTextAttribute (hCon, color);
-
 }
 
 const int panjangpeta = 20;
@@ -80,7 +79,8 @@ void playermove (int key) {
 	  koordinatX += 1;
 	  koordinatX > 19 ? koordinatX =
 	    19 : koordinatX;
-	};
+	}
+	;
 }
 
 void mapdisplay () {
@@ -143,17 +143,24 @@ int main ()
   */
   
   char menu;
-  cout << "SELAMAT DATANG DI GAME DOJO SUIT\n";
-  cout << "----------------------------------\n";
+  setcolor (14);
+  cout << "==================================\n";
+  cout << "-------------DOJO SUIT------------\n";
+  cout << "==================================\n";
   cout << "1. Play\n2. Exit\n";
+  setcolor (7);
   menu = getch();
   
   if (menu == '1')
   {
   	system ("cls");
+  	cout << "Selamat datang di dunia dimana disini suit adalah sebuah pertarungan,\ndisini kamu akan memainkan seorang pemuda yang berniat menantang semua pesuit terhebat di dunia\n";
+  	cout << "\npress any key to continue...";
+  	getch();
+  	system ("cls");
   int game = 1;
   while (game <= 1)
-  {
+  	{
       // Input Keyboard
       main :
 	  playermove (arrowKey);
@@ -170,7 +177,7 @@ int main ()
 	  
       // Ketika bertemu lawan   
       if (peta[koordinatY][koordinatX] == 2 )
-	{
+		{
 		  suit pilihan;
 	      pilihan.choice = 0;
 	      pilihan.pilih = 0;
@@ -195,7 +202,7 @@ int main ()
 		cout << "Silahkan Pilih : ";
 		cin >> pilihan.pilih;
 		cout << endl;
-		int com;
+		int com, hasil;
 		
 		if (pilihan.pilih == 1) {
 			cout << "Kamu memilih gajah\n";
@@ -204,15 +211,18 @@ int main ()
 			if (com <= 3 && com >= 1)
 			{
 				cout << "Computer = Gajah\n\n";
-				cout << "Seri\n"; 
+				cout << "Seri\n";
+				hasil = 1;
 			} else if (com <=6 && com >=4)
 			{
 				cout << "Computer = Orang\n\n";
 				cout << "Kamu menang\n";
+				hasil = 2;
 			} else 
 			{
 				cout << "Computer = Semut\n\n";
 				cout << "Kamu kalah\n";
+				hasil =3;
 			} cout << endl;
 		}
 		else if (pilihan.pilih == 2){
@@ -223,14 +233,17 @@ int main ()
 			{
 				cout << "Computer = Semut\n\n";
 				cout << "Seri\n"; 
+				hasil = 1;
 			} else if (com <=6 && com >=4)
 			{
 				cout << "Computer = Gajah\n\n";
 				cout << "Kamu menang\n";
+				hasil = 2;
 			} else 
 			{
 				cout << "Computer = Orang\n\n";
 				cout << "Kamu kalah\n";
+				hasil = 3;
 			} cout << endl;
 		}
 		else if (pilihan.pilih == 3) {
@@ -241,20 +254,23 @@ int main ()
 			{
 				cout << "Computer = Orang\n\n";
 				cout << "Seri\n"; 
+				hasil = 1;
 			} else if (com <=6 && com >=4)
 			{
 				cout << "Computer = Semut\n\n";
 				cout << "Kamu menang\n";
+				hasil = 2;
 			} else 
 			{
 				cout << "Computer = Gajah\n\n";
 				cout << "Kamu kalah\n";
+				hasil = 3;
 			} cout << endl;
 		} else {
 			cout << "Nomor yang anda input salah" << endl;
 		}
 
-		if (com <=3 && com >= 1)
+		if (hasil == 1)
 		{
 			// Ketika seri
 			cout << "Pilih lagi??\n";
@@ -267,7 +283,7 @@ int main ()
 				goto a;
 		}
 		  getch ();
-		} else if (com <= 6 && com >= 4) 
+		} else if (hasil == 2) 
 		{
 			//Ketika menang, jika memilih tidak maka akan keluar dari game
 			int lanjut;
@@ -285,13 +301,13 @@ int main ()
 				system ("cls");
 				game++;
 			}
-		} else
+		} else if (hasil == 3)
 		{
 			//Ketika kalah
 			int coba;
 			cout << "Coba lagi ??\n";
 			cout << "1. Ya\n2. Tidak\n";
-			cout << "pilihan";
+			cout << "pilihan : ";
 			cin >> coba;
 			if (coba == 1)
 			{
@@ -299,14 +315,13 @@ int main ()
 				goto a;
 			}
 		}
-  }
-  }
-  };
-    if (arrowKey == ESC) {
+  		}
+  		}
+  	if (arrowKey == ESC) {
     	system("cls");
     	char choice;
     	cout << "Apakah anda yakin ingin mengakhiri petualangan ini?" << endl;
-    	cout << "1. Ya \n2. Tidak\n";
+    	cout << "1. Ya\n2.Tidak\n";
     	choice = getch();
 
     	if (choice == '1') {
@@ -316,6 +331,7 @@ int main ()
 			system("cls");
 		}
 	}
+  	};
 	} else if (menu == '2')
 	{
 		return 0;
