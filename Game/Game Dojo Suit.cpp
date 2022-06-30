@@ -154,8 +154,10 @@ int main ()
   if (menu == '1')
   {
   	system ("cls");
+  	setcolor (11);
   	cout << "Selamat datang di dunia dimana disini suit adalah sebuah pertarungan,\ndisini kamu akan memainkan seorang pemuda yang berniat menantang semua pesuit terhebat di dunia\n";
   	cout << "\npress any key to continue...";
+  	setcolor (7);
   	getch();
   	system ("cls");
   int game = 1;
